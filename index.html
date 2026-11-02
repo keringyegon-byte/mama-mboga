@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mama Mboga | Fresh from the kiosk</title>
+  <meta name="description" content="Order fresh vegetables, fruits and cereals from your neighbourhood mama mboga.">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("mmTheme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <div class="awning" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#">Mama Mboga</a>
+    <div class="header-actions">
+      <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode">🌙</button>
+      <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+      <span aria-hidden="true">🧺</span>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Fresh from the kiosk, to your door.</h1>
+      <p>Tomatoes, sukuma, onions and more. Pick what you need, and send your order on WhatsApp.</p>
+      <a class="btn" href="#products">See what's fresh today</a>
+    </div>
+  </section>
+
+  <section class="steps reveal">
+    <h2>How it works</h2>
+    <ol>
+      <li><span>1</span><strong>Pick your mboga</strong><p>Browse today's produce or grab a ready-made pack.</p></li>
+      <li><span>2</span><strong>Send on WhatsApp</strong><p>Your basket becomes a ready-written order message.</p></li>
+      <li><span>3</span><strong>Collect or get it delivered</strong><p>Open daily, 7am to 7pm. Delivery to Ruiru and nearby estates.</p></li><!-- EDIT hours and areas -->
+    </ol>
+  </section>
+
+  <section class="band reveal" id="bundles">
+    <h2>Ready-made packs</h2>
+    <div class="grid" id="bundle-grid"></div>
+  </section>
+
+  <main id="products">
+    <h2>Today's produce</h2>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search produce, e.g. tomatoes" aria-label="Search produce">
+      <select id="sort" aria-label="Sort products">
+        <option value="default">Sort: Default</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    </div>
+    <div id="product-grid" class="grid"></div>
+  </main>
+
+  <section class="about reveal">
+    <img src="images/mama-mboga.jpeg" alt="Mama Wanjiru at her kiosk" loading="lazy">
+    <div>
+      <h2>Meet Mama Wanjiru</h2><!-- EDIT: her real name and story -->
+      <p>For over 15 years Mama has sold the freshest tomatoes, sukuma and onions from her kiosk, and her regulars know she never sells yesterday's mboga. This site brings her kiosk online, so you can order without leaving home.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Mama Mboga &middot; Built in Kenya with HTML, CSS and JavaScript</p>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Your basket</h2>
+      <button class="icon-btn" id="close-cart" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="drawer-items" id="cart-items"></div>
+    <div class="drawer-foot">
+      <label for="area">Delivery area</label>
+      <select id="area"></select>
+      <div class="sum"><span>Subtotal</span><span id="cart-subtotal">KSh 0</span></div>
+      <div class="sum"><span>Delivery</span><span id="cart-fee">KSh 0</span></div>
+      <div class="sum grand"><span>Total</span><strong id="cart-total">KSh 0</strong></div>
+      <label for="cust-name">Your name</label>
+      <input id="cust-name" type="text" autocomplete="name" placeholder="e.g. Wanjiku">
+      <label for="cust-location">Delivery location</label>
+      <input id="cust-location" type="text" autocomplete="street-address" placeholder="e.g. Ruiru, near the market">
+      <button class="btn wa-btn" id="checkout-btn" disabled>Send order on WhatsApp</button>
+    </div>
+  </aside>
+
+  <button class="cart-bar" id="cart-bar" hidden></button>
+  <a class="wa-float" id="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
